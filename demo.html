@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+            <svg width="100" height="100">    
+                    <circle cx="50" cy="50" r="50" stroke="yellow" stroke-width="4" fill="green" />    
+            </svg>   
+        <div class="container bg-success" id="div1">
+            <h1>AJAX Introduction</h1>
+            <span style="color: blue" >This is an span example..</span>
+            <p>
+                AJAX tutorial covers concepts and examples of AJAX technology for beginners and professionals.
+                AJAX is an acronym for Asynchronous JavaScript and XML. It is a group of inter-related technologies like JavaScript, DOM, XML, HTML/XHTML, CSS, XMLHttpRequest etc.
+                AJAX allows you to send and receive data asynchronously without reloading the web page. So it is fast.
+            </p>
+            <button id="ajax" class="btn btn-primary" onclick="myfun()">Ajax</button>
+        </div>
+        <div class="container bg-warning"  style="border-radius: 10px 10px 10px 10px;margin-top: 20px">
+            <h2>Contact Us</h2>
+            <hr>
+            <div >
+                <label>Name</label><input type="text" class="form-control" name="text"/>
+                <label>Name</label><input type="text" class="form-control" name="text"/>
+                <label>Name</label><input type="text" class="form-control" name="text" id="d"/>                    
+            </div>
+        </div>
+        <!-- <script>
+            $(document).ready(function(){
+                $('#ajax').click(function(){
+                    $("#div1").load("load.html",function(){
+                        alert("sdjskj   ");
+                    });
+                })
+            });
+        </script> -->
+
+        <script>
+            $(document).ready(function(){
+                $("#d").datepicker();
+            });
+        </script>
+        <script>
+            function myfun()
+            {
+                var req=new XMLHttpRequest();
+                req.open("GET","test.php?id=10",true);
+                req.send();
+                req.onreadystatechange=function(){
+                    if(req.readyState==4 && req.status==200)
+                    {
+                        document.getElementById("div1").innerHTML=req.responseText;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
